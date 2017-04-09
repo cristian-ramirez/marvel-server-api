@@ -1,4 +1,5 @@
 const api = require('marvel-api');
+const NOT_IMAGE_AVAILABLE = 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available';
 
 const marvel = api.createClient({
 	publicKey: process.env.APP_KEY_PUBLIC,
@@ -19,12 +20,17 @@ function callFind({ path, id, res }) {
 function callPath({ path, res, limit, offset }) {
 	marvel[path].findAll((limit || 0), (offset || 0))
 		.then(response => {
-			res.send(response);
+				response.data = filterNotAvailable(response);
+				res.send(response);
 		})
 		.fail(error => {
 			res.send(error).end();
 		})
 		.done();
+}
+
+function filterNotAvailable({ data }) {
+	return data.filter((item) => item.thumbnail.path !== NOT_IMAGE_AVAILABLE);
 }
 
 module.exports = {
