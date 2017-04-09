@@ -1,0 +1,6 @@
+.DS_Store
+.env
+nodemon.json
+node_modules/
+npm-debug.log
+yarn-error.log
