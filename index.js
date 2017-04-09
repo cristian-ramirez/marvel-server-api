@@ -11,17 +11,13 @@ const router = require('./router');
 
 const port = process.env.PORT || 7000;
 
-// apply middlewares
 app.use(morgan('tiny'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// app.use('/api', router);
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+app.use('/api', router);
 
 app.listen(port, () => {
-	console.log('Server running on port:' + port);
+	console.log(`Server running on port:${port}`);
 });
