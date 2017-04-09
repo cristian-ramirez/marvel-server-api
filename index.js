@@ -9,6 +9,8 @@ const app = express();
 
 const router = require('./router');
 
+const port = process.env.PORT || 7000;
+
 // apply middlewares
 app.use(morgan('tiny'));
 app.use(cors());
@@ -20,6 +22,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 });
 
-app.listen(7000, () => {
-	console.log('Server running on port 7000');
+app.listen(port, () => {
+	console.log('Server running on port:' + port);
 });
