@@ -18,7 +18,7 @@ function callFind({ path, id, res }) {
 }
 
 function callPath({ path, res, limit, offset }) {
-	marvel[path].findAll((limit || 0), (offset || 0))
+	marvel[path].findAll((limit || 10), (offset || 0))
 		.then(response => {
 				response.data = filterNotAvailable(response);
 				res.send(response);
