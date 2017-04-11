@@ -17,7 +17,7 @@
 4. Finally run `npm run server`.
 
 ## Demo
-You can use the current implementation with [Heroku demo app](https://marvel-server-api.herokuapp.com/api), the currents values availables for search are `characters, comics, creators, events, series, stories`, such as:
+You can use the current implementation with [Heroku demo app](https://marvel-server-api.herokuapp.com), the currents values availables for search are `characters, comics, creators, events, series, stories`, such as:
    * `https://marvel-server-api.herokuapp.com/api/characters`
    * `https://marvel-server-api.herokuapp.com/api/comics`
 
