@@ -5,7 +5,7 @@
 
 ## Install
 1. Download the source code:
-   * `git clone https://github.com/cristian-ramirez/marvel-server-api.git`.
+   * `git clone https://github.com/cristian-ramirez/marvel-server-api.git`
    * `cd marvel-server-api.git`
 
 2. Run `npm install`.
