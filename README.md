@@ -5,7 +5,7 @@
 
 ## Install
 1. Download the source code:
-   * `git clone https://github.com/cristian-ramirez/marvel-server-api.git`.
+   * `git clone https://github.com/cristian-ramirez/marvel-server-api.git`
    * `cd marvel-server-api.git`
 
 2. Run `npm install`.
@@ -17,12 +17,13 @@
 4. Finally run `npm run server`.
 
 ## Demo
-You can use the current implementation with [Heroku demo app](https://marvel-server-api.herokuapp.com/api), the currents values availables for search are `characters, comics, creators, events, series, stories`, such as:
-   * `https://marvel-server-api.herokuapp.com/api/characters`
-   * `https://marvel-server-api.herokuapp.com/api/comics`
+You can use the current implementation with [Heroku demo app](https://marvel-server-api.herokuapp.com), the currents values availables for search are `characters, comics, creators, events, series, stories`, such as:
+   * `https://marvel-server-api.herokuapp.com/api/{path}`
+
+Find by id:
+   * `https://marvel-server-api.herokuapp.com/api/{path}/{id}`
 
 Also you can use query string to set limit of values by query and offset for pagination, for instance:
-   * `https://marvel-server-api.herokuapp.com/api/characters?limit=10&offset=10`
-   * `https://marvel-server-api.herokuapp.com/api/comics?limit=10&offset=40`
+   * `https://marvel-server-api.herokuapp.com/api/{path}?limit={number}&offset={number}`
 
 [Marvel Developer]: https://developer.marvel.com
