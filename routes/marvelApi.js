@@ -29,6 +29,18 @@ function callPath({ path, res, limit, offset }) {
 		.done();
 }
 
+function findNameStartsWith({ res, path, nameStartsWith }) {
+	marvel[path].findNameStartsWith(nameStartsWith)
+		.then(response => {
+				response.data = filterNotAvailable(response);
+				res.send(response);
+		})
+		.fail(error => {
+			res.send(error).end();
+		})
+		.done();
+}
+
 function filterNotAvailable({ data }) {
 	return data.filter((item) => item.thumbnail.path !== NOT_IMAGE_AVAILABLE);
 }
@@ -36,4 +48,5 @@ function filterNotAvailable({ data }) {
 module.exports = {
 	callFind,
 	callPath,
+	findNameStartsWith,
 };

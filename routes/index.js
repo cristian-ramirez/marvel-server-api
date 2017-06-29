@@ -2,9 +2,13 @@ const url = require('url');
 const api = require('./marvelApi');
 
 function path(req, res) {
-	const { limit, offset } = url.parse(req.url, true).query;
+	const { limit, offset, nameStartsWith } = url.parse(req.url, true).query;
 	const { path } = req.params;
-	api.callPath({ res, path, limit, offset });
+	if (nameStartsWith && path === 'characters') {
+		api.findNameStartsWith({ res, path, nameStartsWith });
+	} else {
+		api.callPath({ res, path, limit, offset, nameStartsWith });
+	}
 }
 
 function find(req, res) {
