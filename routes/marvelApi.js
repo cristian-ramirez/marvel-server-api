@@ -42,7 +42,7 @@ function findNameStartsWith({ res, path, nameStartsWith }) {
 }
 
 function filterNotAvailable({ data }) {
-	return data.filter((item) => item.thumbnail.path !== NOT_IMAGE_AVAILABLE);
+	return data.filter((item) => item.thumbnail.path !== NOT_IMAGE_AVAILABLE || item.thumbnail.extension !== 'gif');
 }
 
 module.exports = {
