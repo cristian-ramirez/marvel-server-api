@@ -7,6 +7,7 @@
     "start": "node index.js",
     "server": "nodemon index.js"
   },
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",

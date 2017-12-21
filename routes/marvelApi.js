@@ -8,36 +8,28 @@ const marvel = api.createClient({
 
 function callFind({ path, id, res }) {
 	marvel[path].find(id)
-		.then(response => {
-			res.send(response);
-		})
-		.fail(error => {
-			res.send(error).end();
-		})
+		.then(response => res.send(response))
+		.fail(error => res.send(error).end())
 		.done();
 }
 
 function callPath({ path, res, limit, offset }) {
 	marvel[path].findAll((limit || 20), (offset || 0))
 		.then(response => {
-				response.data = filterNotAvailable(response);
-				res.send(response);
+			response.data = filterNotAvailable(response);
+			res.send(response);
 		})
-		.fail(error => {
-			res.send(error).end();
-		})
+		.fail(error => res.send(error).end())
 		.done();
 }
 
 function findNameStartsWith({ res, path, nameStartsWith }) {
 	marvel[path].findNameStartsWith(nameStartsWith)
 		.then(response => {
-				response.data = filterNotAvailable(response);
-				res.send(response);
+			response.data = filterNotAvailable(response);
+			res.send(response);
 		})
-		.fail(error => {
-			res.send(error).end();
-		})
+		.fail(error => res.send(error).end())
 		.done();
 }
 
