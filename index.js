@@ -5,7 +5,7 @@ const app = express();
 const subpath = express();
 
 const argv = require('minimist')(process.argv.slice(2));
-const swagger = require('swagger-node-express');
+const swagger = require('swagger-node-express').createNew(subpath);
 
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -23,7 +23,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/v1', subpath);
 app.use('/api', router);
 
-swagger.setAppHandler(subpath);
 app.use(express.static('dist'));
 swagger.setApiInfo({
 	title: 'Marvel Express API',
