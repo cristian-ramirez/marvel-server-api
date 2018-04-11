@@ -1,15 +1,17 @@
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
-const express = require('express');
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import cors from 'cors';
+
+import express from 'express';
+
 const app = express();
 const subpath = express();
 
 const argv = require('minimist')(process.argv.slice(2));
 const swagger = require('swagger-node-express').createNew(subpath);
-
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const cors = require('cors');
 
 const router = require('./router');
 
@@ -33,7 +35,7 @@ swagger.setApiInfo({
 	licenseUrl: '',
 });
 subpath.get('/', (req, res) => {
-	res.send(__dirname + '/dist/index.html'); //eslint-disable-line
+	res.send(__dirname + '/dist/index.html');
 });
 swagger.configureSwaggerPaths('', 'api-docs', '');
 
@@ -41,5 +43,5 @@ const applicationUrl = argv.domain !== undefined ? argv.domain : 'localhost';
 swagger.configure(applicationUrl, '1.0.0');
 
 app.listen(port, () => {
-	console.log(`Server running on port:${port}`);  //eslint-disable-line
+	console.log(`Server running on port:${port}`);
 });

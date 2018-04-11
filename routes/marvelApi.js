@@ -1,4 +1,4 @@
-const api = require('marvel-api');
+import api from 'marvel-api';
 const NOT_IMAGE_AVAILABLE = 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available';
 
 const marvel = api.createClient({

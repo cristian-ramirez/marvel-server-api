@@ -1,5 +1,5 @@
-const url = require('url');
-const api = require('./marvelApi');
+import url from 'url';
+import api from './marvelApi';
 
 function path(req, res) {
 	const { limit, offset, nameStartsWith } = url.parse(req.url, true).query;
