@@ -34,6 +34,7 @@ swagger.setApiInfo({
 	license: '',
 	licenseUrl: '',
 });
+
 subpath.get('/', (req, res) => {
 	res.send(__dirname + '/dist/index.html');
 });

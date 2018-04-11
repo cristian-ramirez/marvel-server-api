@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "author": "Cristian Ramírez",
   "scripts": {
+    "clean": "rm -rf build && mkdir build",
+    "prestart": "npm run clean && babel ./server -d ./build --copy-files",
+    "start": "node ./build/index.js",
     "babel-node": "babel-node --presets=env",
-    "start": "node index.js",
-    "server": "nodemon --exec npm run babel-node -- index.js"
+    "server": "nodemon --exec npm run babel-node -- ./server/index.js"
   },
   "license": "ISC",
   "dependencies": {
