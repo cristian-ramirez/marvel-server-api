@@ -1,9 +1,7 @@
 import express from 'express';
 import routes from '../routes';
 
-const router = express.Router({
-	mergeParams: true,
-});
+const router = express.Router({ mergeParams: true });
 
 const paths = ['characters', 'comics', 'creators', 'events', 'series', 'stories'];
 
@@ -16,7 +14,9 @@ function validatePaths(req, res, next) {
 	}
 }
 
-router.get('/:path', validatePaths, routes.path);
-router.get('/:path/:id', validatePaths, routes.find);
+router.use('/:path', validatePaths);
+
+router.get('/:path', routes.path);
+router.get('/:path/:id', routes.find);
 
 module.exports = router;

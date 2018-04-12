@@ -1,11 +1,10 @@
+import express from 'express';
 import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 
 import dotEnv from 'dotenv';
 dotEnv.config();
-
-import express from 'express';
 
 const app = express();
 const subPath = express();
@@ -23,5 +22,5 @@ app.use('/v1', subPath);
 app.use('/api', router);
 
 app.listen(port, () => {
-	console.log(`Server running on port:${port}`);
+	console.log(`Server running on port:${port}\n`);
 });
