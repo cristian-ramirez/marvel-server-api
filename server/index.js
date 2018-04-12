@@ -1,5 +1,4 @@
 import express from 'express';
-import { json, urlencoded } from 'body-parser';
 import morgan from 'morgan';
 import cors from 'cors';
 
@@ -14,8 +13,6 @@ const port = process.env.PORT || 7000;
 
 app.use(morgan('tiny'));
 app.use(cors());
-app.use(json());
-app.use(urlencoded({ extended: true }));
 
 app.use('/api', router);
 
