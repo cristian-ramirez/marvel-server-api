@@ -1,5 +1,7 @@
 # marvel-server-api
 
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com)
+
 ## Introduction
 **marvel-server-api** is a tiny server with [express.js](https://expressjs.com/) and the npm package [marvel-api](https://github.com/fiveisprime/marvel-api) that allow us to do easy queries to API of [Marvel Developer]
 

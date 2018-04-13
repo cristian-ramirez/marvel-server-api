@@ -8,7 +8,8 @@
     "prestart": "npm run clean && babel ./server -d ./build",
     "start": "node ./build/index.js",
     "babel-node": "babel-node --presets=env",
-    "server": "nodemon --exec npm run babel-node -- ./server/index.js"
+    "server": "nodemon --exec npm run babel-node -- ./server/index.js",
+    "lint": "eslint **.js"
   },
   "license": "ISC",
   "dependencies": {
@@ -21,6 +22,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
     "nodemon": "^1.14.1"
   }
 }
