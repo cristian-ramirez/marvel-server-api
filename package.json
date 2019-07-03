@@ -5,7 +5,7 @@
   "author": "Cristian Ramírez",
   "scripts": {
     "clean": "rm -rf build && mkdir build",
-    "prestart": "npm run clean && babel ./server -d ./build",
+    "build": "npm run clean && babel ./server -d ./build",
     "start": "node ./build/index.js",
     "babel-node": "babel-node --presets=env",
     "server": "nodemon --exec npm run babel-node -- ./server/index.js",
@@ -13,16 +13,59 @@
   },
   "license": "ISC",
   "dependencies": {
-    "cors": "^2.8.3",
-    "dotenv": "^4.0.0",
-    "express": "^4.15.2",
+    "babel-polyfill": "^6.26.0",
+    "cors": "^2.8.2",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
     "marvel-api": "^1.1.0",
-    "morgan": "^1.8.1"
+    "morgan": "^1.9.1",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "eslint": "^4.19.1",
-    "nodemon": "^1.14.1"
+    "babel-eslint": "^10.0.2",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.0.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.18.0",
+    "nodemon": "^1.19.1"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "rules": {
+      "brace-style": [
+        "error"
+      ],
+      "comma-dangle": [
+        "error",
+        "never"
+      ],
+      "no-unused-vars": [
+        "warn"
+      ],
+      "no-var": [
+        "off"
+      ],
+      "one-var": [
+        "off"
+      ],
+      "no-tabs": [
+        "off"
+      ],
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "no-unused-expressions": [
+        "error",
+        {
+          "allowTernary": true
+        }
+      ]
+    }
   }
 }

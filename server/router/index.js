@@ -7,10 +7,11 @@ const paths = ['characters', 'comics', 'creators', 'events', 'series', 'stories'
 
 function validatePaths(req, res, next) {
 	const { path } = req.params;
+
 	if (paths.indexOf(path) !== -1) {
 		next();
 	} else {
-		res.send(`Paths not found: ${path}`).end();
+		res.status(404).send(`Paths not found: ${path}`);
 	}
 }
 

@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  redis:
+    container_name: marvel-redis
+    image: redis:5.0.5
+    expose:
+      - "6379"
+
+  server:
+    container_name: marvel-server
+    image: marvel-server
+    build:
+      context: .
+      dockerfile: ./docker/node.dockerfile
+    volumes:
+      - ./:/marvel-server
+    ports:
+      - "7000:7000"
+    links:
+      - redis
+    environment:
+      - REDIS_URL=redis://marvel-redis
